@@ -83,6 +83,11 @@ function addEngineer() {
             type: 'input',
             name: 'github',
             message: 'Enter engineer GitHub username: '
+        },
+        {
+            type: 'input',
+            name: 'githubUrl',
+            message: 'Enter engineer GitHub URL: '
         }
     ]).then(engineer => {
         teamArray.engineers.push(engineer);

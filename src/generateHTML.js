@@ -33,6 +33,8 @@ let managerCard = `
       const employeeId = engineer.employeeId;
       const email = engineer.email;
       const github = engineer.github;
+      const githubUrl = engineer.githubUrl;
+      
     
       const engineerElement = `
       <div class="col-4 mt-4">
@@ -44,8 +46,8 @@ let managerCard = `
 
           <div class="card-body">
               <p class="id">ID: ${employeeId}</p>
-              <p class="email">Email:<a href="mailto:${email}">${email}</a></p>
-              <p class="school">GitHub: ${github}</p>
+              <p class="email">Email: <a href="mailto:${email}">${email}</a></p>
+              <p class="github">GitHub: <a href="${githubUrl}">${github}</a></p>
           </div>
   </div>
 </div>
@@ -75,7 +77,7 @@ let managerCard = `
 
           <div class="card-body">
               <p class="id">ID: ${employeeId}</p>
-              <p class="email">Email:<a href="mailto:${email}">${email}</a></p>
+              <p class="email">Email: <a href="mailto:${email}">${email}</a></p>
               <p class="school">School: ${school}</p>
           </div>
   </div>
