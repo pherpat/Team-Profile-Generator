@@ -21,7 +21,8 @@ This application requires a file system and inquirer module. Jest is used if tes
 
 ## Usage
 Answer questions about your project using inquirer from your command-line.
-Screenshot: 
+You can see a screenshot here: [Screenshot](https://github.com/pherpat/Team-Profile-Generator/blob/main/assets/Team-Profile-Generator:%20Screenschot.png)
+
 You can see the walkthrough video here: [Video Link](https://drive.google.com/file/d/1LJZeLzj1QggwzGO1XDyppMwEgsIZUGIM/view)
  
 
