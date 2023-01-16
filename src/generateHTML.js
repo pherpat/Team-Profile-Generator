@@ -1,12 +1,10 @@
+// Node module to write html page file
 const fs = require('fs');
 
-
+// Main function to create the HTML page - Passing in the Data catpured from Inquirer
 function generateHTML(teamArray){
   
-//console.log(teamArray);
-    
-//const myJSON = JSON.stringify(teamArray);
-
+// Extract the manager data from the team object, combine with html and write to a string
 let managerCard = `
     <div class="col-4 mt-4">
     <div class="card h-100">
@@ -25,6 +23,8 @@ let managerCard = `
 </div>
     `;
 
+// Extract the engineer data from the team object with a loop, combine with html and write to a string
+
     const engineerElements = [];
     const engineers = teamArray.engineers;
     for (let i = 0; i < engineers.length; i++) {
@@ -35,7 +35,7 @@ let managerCard = `
       const github = engineer.github;
       const githubUrl = engineer.githubUrl;
       
-    
+    // After loopiong throught the data, inject into html
       const engineerElement = `
       <div class="col-4 mt-4">
       <div class="card h-100">
@@ -52,12 +52,14 @@ let managerCard = `
   </div>
 </div>
       `;
+      // Push extracted and html formatted data to a new array for each loop
       engineerElements.push(engineerElement);
 
     }
+    // Concatenate a engineer data to a single html string
     let engineersHTML = engineerElements.join('');
   
-  ///////////////////////////////////
+// Extract the Intern data from the team object with a loop, combine with html and write to a string
     const internElements = [];
     const interns = teamArray.interns;
     for (let i = 0; i < interns.length; i++) {
@@ -66,7 +68,8 @@ let managerCard = `
       const employeeId = intern.employeeId;
       const email = intern.email;
       const school = intern.school;
-    
+
+      // After loopiong throught the data, inject into html
       const internElement = `
       <div class="col-4 mt-4">
       <div class="card h-100">
@@ -83,13 +86,15 @@ let managerCard = `
   </div>
 </div>
       `;
+    // Push extracted and html formatted data to a new array for each loop
       internElements.push(internElement);
 
     }
+        // Concatenate a intern data to a single html string
     let internsHTML = internElements.join('');
 
-/////////////////////////////////////
 
+// Create a single variable to build the entire HTML page
 const mainContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,25 +130,23 @@ const mainContent = `<!DOCTYPE html>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </html>`;
+// Rename the variable
 const content = mainContent;
     
-
+// Write the variable with all HTML data to a new HTML file
 fs.writeFile('dist/index.html', content, err => {
         if (err) {
           console.error(err);
         }
-        // file written successfully
+        console.log("HTML file was successfully created!");
       });
 
 
-/////////////////////
 
 };
 
 
-/////////////////////
-
+// Export the funtion to the main index.js
  module.exports = generateHTML; 
- //module.exports = generatePAGE; 
 
     

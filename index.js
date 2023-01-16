@@ -1,16 +1,16 @@
 // Node modules
-//const fs = require('fs');
 const inquirer = require('inquirer');
 
 // Link to page creation
 const generateHTML = require('./src/generateHTML');
 
+// Create empty Object to to store the answers
 const teamArray = {
     manager: {},
     engineers: [],
     interns: [],
 };
-
+// Start Inquirer Prompts to store the Manager Data
 function addManager() {
     inquirer.prompt([
         {
@@ -34,11 +34,14 @@ function addManager() {
             message: 'Enter manager office number: '
         }
     ]).then(manager => {
+        // Push Manager Data to the Object/Array
         teamArray.manager = manager;
+        //Run the Inquirer Prompts for the Employees
+
         addEmployee();
     });
 }
-
+// Funtion to continue Inquirer Prompts to store the Employee Data
 function addEmployee() {
     inquirer.prompt([
         {
@@ -53,15 +56,15 @@ function addEmployee() {
         } else if (answer.role === 'Intern') {
             addIntern();
         } else {
+            // Once all Data is captured run the generateHTML module
             generateHTML(teamArray);
-            //generatePAGE();
-            //console.log(teamArray);
+            
             
             
         }
     });
 }
-
+// Start Inquirer Prompts to store the Engineer Data
 function addEngineer() {
     inquirer.prompt([
         {
@@ -94,7 +97,7 @@ function addEngineer() {
         addEmployee();
     });
 }
-
+// Start Inquirer Prompts to store the Intern Data
 function addIntern() {
     inquirer.prompt([
         {
@@ -123,10 +126,7 @@ function addIntern() {
     });
 }
 
-
-
-
-
+// Run the Inquirer Prompts to start the App
 addManager();
-//module.exports = teamArray;
+
 
