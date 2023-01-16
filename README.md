@@ -51,7 +51,4 @@ patinopher@gmail.com, or visit my GitHub account at
 
  This is an open source, you can create a branch and send me a pull request.
 
- ## Video
-
- Link to the screen recording showing the app functionality [video](https://drive.google.com/file/d/1YIvuyLXNgbpcCZAITGfEBC4ysKpM39df/view)
-
+ 
